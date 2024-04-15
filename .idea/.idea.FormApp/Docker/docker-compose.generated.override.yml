@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  formapp:
+    build:
+      context: "D:\\New folder\\FormApp"
+      dockerfile: "FormApp/Dockerfile"
+      target: "build-env"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/FormApp.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "formapp:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Tibi\\.nuget\\packages:/root/.nuget/packages"
+    - "D:\\New folder\\FormApp\\FormApp:/app:rw"
+    - "D:\\New folder\\FormApp:/src:rw"
+    working_dir: "/app"
