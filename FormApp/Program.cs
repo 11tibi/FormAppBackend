@@ -2,6 +2,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using FormApp.Models;
+using FormApp.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -48,6 +49,10 @@ builder.Services.AddControllers().AddJsonOptions(options =>
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     options.JsonSerializerOptions.WriteIndented = true;
 });
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IFormService, FormService>();
+builder.Services.AddScoped<IResponseService, ResponseService>();
 
 var app = builder.Build();
 
